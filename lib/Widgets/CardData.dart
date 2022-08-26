@@ -18,14 +18,17 @@ class CardData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image(image: NetworkImage(url)),
-        Text(
-          title,
-          style: const TextStyle(color: Colors.white),
-        )
-      ],
+    return Card(
+      color: Colors.grey[700],
+      child: Column(
+        children: [
+          Image(image: NetworkImage(url, scale: 10)),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 25),
+          )
+        ],
+      ),
     );
   }
 }
