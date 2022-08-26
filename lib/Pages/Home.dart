@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/addbutton/add.dart';
-import 'package:shopapp/model/model.dart';
-import 'package:shopapp/Screens/EditScreen.dart';
+import 'package:shopapp/Data/data.dart';
+import 'package:shopapp/Widgets/CardData.dart';
+import 'package:shopapp/Widgets/Cards.dart';
 
-class EditCard extends StatefulWidget {
-  const EditCard({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<EditCard> createState() => _EditCard();
+  State<Home> createState() => _HomeState();
 }
 
-class _EditCard extends State<EditCard> {
-  final List<Model> words = [];
-  bool isDeleted = false;
-  void deleteWord(String id) {
-    setState(() {
-      words.removeWhere((element) => element.id == id);
-    });
-  }
+class _HomeState extends State<Home> {
+  final List<Data> words = [];
 
-  void additem(Model word) {
+  void add(Data word) {
     setState(() {
       words.add(word);
     });
@@ -29,7 +23,7 @@ class _EditCard extends State<EditCard> {
   showBottomSheet() {
     return showModalBottomSheet(
       context: context,
-      builder: (context) => Add(additem: additem),
+      builder: (context) => Cards(add: add),
     );
   }
 
@@ -39,16 +33,18 @@ class _EditCard extends State<EditCard> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 165, 55, 130),
         title: const Text(
-          "My Shop",
-          style: TextStyle(color: Colors.white, fontSize: 25),
-          textAlign: TextAlign.start,
+          "MyShop",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+          ),
         ),
         actions: [
           GestureDetector(
             child:
                 (const Icon(Icons.card_giftcard_outlined, color: Colors.white)),
             onTap: () {
-              Navigator.pushNamed(context, '/Escreen');
+              Navigator.pushNamed(context, '/Products');
             },
           ),
         ],
@@ -56,19 +52,12 @@ class _EditCard extends State<EditCard> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
-          itemBuilder: ((context, index) => WordTile(
+          itemBuilder: ((context, index) => CardData(
+                id: words[index].id,
                 title: words[index].title,
                 description: words[index].description,
                 price: words[index].price,
                 url: words[index].url,
-                trailing: isDeleted
-                    ? IconButton(
-                        onPressed: () => deleteWord(words[index].id),
-                        icon: const Icon(
-                          Icons.delete,
-                          color: Colors.red,
-                        ))
-                    : const SizedBox(),
               )),
           itemCount: words.length,
         ),

@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 
-class WordTile extends StatelessWidget {
+class CardData extends StatelessWidget {
+  final String id;
   final String title;
   final String description;
   final String price;
   final String url;
-  final Widget trailing;
 
-  const WordTile({
+  const CardData({
+    required this.id,
     required this.title,
     required this.description,
     required this.price,
     required this.url,
-    required this.trailing,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        ListTile(
-          leading: Image(image: NetworkImage(url)),
-          title: Text(title),
-          isThreeLine: true,
-          trailing: trailing,
-        ),
+        Image(image: NetworkImage(url)),
+        Text(
+          title,
+          style: const TextStyle(color: Colors.white),
+        )
       ],
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/widgets/EditCard.dart';
-import 'package:shopapp/Screens/Escreen.dart';
+import 'package:shopapp/Pages/Home.dart';
+import 'package:shopapp/Pages/Products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const EditCard(),
+      home: const Home(),
       routes: {
-        '/Escreen': (_) => const Escreen(),
+        '/Products': (_) => const Products(),
       },
     );
   }

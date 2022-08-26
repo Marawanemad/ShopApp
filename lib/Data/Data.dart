@@ -1,10 +1,10 @@
-class Model {
+class Data {
   String id;
   String title;
   String description;
   String price;
   String url;
-  Model({
+  Data({
     required this.id,
     required this.title,
     required this.description,
