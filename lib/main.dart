@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp/Pages/Home.dart';
+import 'package:shopapp/Pages/Info.dart';
 import 'package:shopapp/Pages/Products.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       home: const Home(),
       routes: {
         '/Products': (_) => const Products(),
+        '/Info': (_) => const Info(),
       },
     );
   }

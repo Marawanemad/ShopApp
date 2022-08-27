@@ -16,6 +16,9 @@ class Cards extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         color: Colors.grey[400],
         child: Column(
           children: [

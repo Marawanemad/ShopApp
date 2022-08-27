@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/Data/data.dart';
-import 'package:shopapp/Widgets/CardData.dart';
 
 class Products extends StatefulWidget {
   const Products({Key? key}) : super(key: key);
