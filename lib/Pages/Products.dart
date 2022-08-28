@@ -19,6 +19,14 @@ class _ProductsState extends State<Products> {
             fontSize: 25,
           ),
         ),
+        actions: [
+          GestureDetector(
+            child: (const Icon(Icons.edit, color: Colors.white)),
+            onTap: () {
+              Navigator.pushNamed(context, '/Edit');
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(children: const []),

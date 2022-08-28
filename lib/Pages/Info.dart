@@ -20,27 +20,29 @@ class Info extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            Card(
-              color: Colors.grey,
-              child: Image(image: NetworkImage("url")),
-            ),
-            Card(
-              color: Colors.grey,
-              child: Text(
-                'price',
-                style: TextStyle(fontSize: 30),
+        child: Center(
+          child: Column(
+            children: const [
+              Card(
+                color: Colors.grey,
+                child: Image(image: NetworkImage("url")),
               ),
-            ),
-            Card(
-              color: Colors.grey,
-              child: Text(
-                'description',
-                style: TextStyle(fontSize: 30),
+              Card(
+                color: Colors.grey,
+                child: Text(
+                  'price',
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
-            ),
-          ],
+              Card(
+                color: Colors.grey,
+                child: Text(
+                  'description',
+                  style: TextStyle(fontSize: 30),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
