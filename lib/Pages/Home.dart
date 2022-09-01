@@ -44,14 +44,17 @@ class _HomeState extends State<Home> {
             child:
                 (const Icon(Icons.card_giftcard_outlined, color: Colors.white)),
             onTap: () {
-              Navigator.pushNamed(context, '/Products');
+              Navigator.pushNamed(context, '/Products',
+                  arguments: {"words": words});
             },
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
           itemBuilder: ((context, index) => CardData(
                 id: words[index].id,
                 title: words[index].title,

@@ -25,18 +25,25 @@ class _CardData extends State<CardData> {
     return GestureDetector(
       child: Card(
         color: Colors.grey[700],
-        child: Column(
-          children: [
-            Image(image: NetworkImage(widget.url, scale: 10)),
-            Text(
-              widget.title,
-              style: const TextStyle(color: Colors.white, fontSize: 25),
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image(image: NetworkImage(widget.url)),
+              Text(
+                widget.title,
+                style: const TextStyle(color: Colors.white, fontSize: 25),
+              )
+            ],
+          ),
         ),
       ),
       onTap: () {
-        Navigator.pushNamed(context, '/Info');
+        Navigator.pushNamed(context, '/Info', arguments: <String, String>{
+          "title": widget.title,
+          "description": widget.description,
+          "price": widget.price,
+          "url": widget.url,
+        });
       },
     );
   }

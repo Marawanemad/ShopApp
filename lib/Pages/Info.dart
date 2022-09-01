@@ -7,11 +7,17 @@ class Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arg = ModalRoute.of(context)!.settings.arguments as Map;
+    String title = arg['title'];
+    String description = arg['description'];
+    String price = arg['price'];
+    String url = arg['url'];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 165, 55, 130),
-        title: const Text(
-          "title",
+        title: Text(
+          title,
           // ignore: prefer_const_constructors
           style: TextStyle(
             color: Colors.white,
@@ -22,23 +28,24 @@ class Info extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            children: const [
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
               Card(
                 color: Colors.grey,
-                child: Image(image: NetworkImage("url")),
+                child: Image(image: NetworkImage(url)),
               ),
               Card(
                 color: Colors.grey,
                 child: Text(
-                  'price',
-                  style: TextStyle(fontSize: 30),
+                  price,
+                  style: const TextStyle(fontSize: 50),
                 ),
               ),
               Card(
                 color: Colors.grey,
                 child: Text(
-                  'description',
-                  style: TextStyle(fontSize: 30),
+                  description,
+                  style: const TextStyle(fontSize: 50),
                 ),
               ),
             ],

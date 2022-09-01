@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/Products': (_) => const Products(),
         '/Info': (_) => const Info(),
         '/Edit': (_) => const Edit(),
+        '/Home': (_) => const Home(),
       },
     );
   }
